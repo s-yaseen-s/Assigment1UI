@@ -52,6 +52,29 @@ body{
     outline: 2px solid #b9f0ce;
     outline-offset: 2px;
 }
+.theme-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    margin-left: auto;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid #83c6a4;
+    border-radius: 4px;
+    background: transparent;
+    color: #f5f7f6;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+.theme-toggle:hover{
+    background-color: #3a4842;
+    color: #b9f0ce;
+}
+.theme-toggle:focus-visible{
+    outline: 2px solid #b9f0ce;
+    outline-offset: 2px;
+}
 .footer{
     background-color: #252c2a;
     color: #e4e9e6;
@@ -78,6 +101,11 @@ body{
     }
     .navbar a{
         padding: 0.55rem 0.65rem;
+        font-size: 0.9rem;
+    }
+    .theme-toggle{
+        min-height: 36px;
+        padding: 0.45rem 0.7rem;
         font-size: 0.9rem;
     }
 }

@@ -177,6 +177,53 @@
             max-width: 60ch;
             margin-bottom: 0;
         }
+        body.dark-mode{
+            background-color: #171d19;
+            color: #e4e9e6;
+        }
+        body.dark-mode .home-page{
+            color: #e4e9e6;
+        }
+        body.dark-mode .home-intro,
+        body.dark-mode .home-section{
+            border-color: #39463e;
+        }
+        body.dark-mode .home-intro h1,
+        body.dark-mode .section-heading h2,
+        body.dark-mode .feature-copy h2,
+        body.dark-mode .visit-copy h2,
+        body.dark-mode .event-card h3{
+            color: #f2f5f3;
+        }
+        body.dark-mode .home-intro p:not(.eyebrow),
+        body.dark-mode .section-heading p,
+        body.dark-mode .event-card p:not(.event-date),
+        body.dark-mode .feature-copy p,
+        body.dark-mode .visit-copy p,
+        body.dark-mode .feature-facts{
+            color: #c1cbc4;
+        }
+        body.dark-mode .eyebrow,
+        body.dark-mode .text-link,
+        body.dark-mode .event-date{
+            color: #a9dfbd;
+        }
+        body.dark-mode .event-card{
+            border-color: #405047;
+            border-top-color: #83c6a4;
+            background-color: #222b26;
+        }
+        body.dark-mode .event-place{
+            color: #aab7ae;
+        }
+        body.dark-mode .action-link.secondary{
+            border-color: #83c6a4;
+            color: #b9e9ca;
+        }
+        body.dark-mode .action-link.secondary:hover{
+            background-color: #355c46;
+            color: #fff;
+        }
         @media (max-width: 760px){
             .home-intro,
             .feature-row{
@@ -206,6 +253,7 @@
             <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
         </ul>
+        <button class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
     </nav>
     <main class="home-page">
         <section class="home-intro" aria-labelledby="home-title">
@@ -280,5 +328,14 @@
     <footer class="footer">
         <p>&copy; 2024 Campus Event Guide. All rights reserved.</p>
     </footer>
+    <script>
+        const themeToggle = document.querySelector(".theme-toggle");
+
+        themeToggle.addEventListener("click", () => {
+            const darkModeEnabled = document.body.classList.toggle("dark-mode");
+            themeToggle.setAttribute("aria-pressed", String(darkModeEnabled));
+            themeToggle.textContent = darkModeEnabled ? "Light mode" : "Dark mode";
+        });
+    </script>
 </body>
 </html>
