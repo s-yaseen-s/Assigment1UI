@@ -5,256 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Event Guide</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .home-page,
-        .home-page *{
-            box-sizing: border-box;
-        }
-        .home-page{
-            width: min(1120px, 100%);
-            flex: 1;
-            margin: 0 auto;
-            padding: 2.5rem 1.25rem 3rem;
-            color: #28332e;
-        }
-        .home-intro{
-            display: grid;
-            grid-template-columns: 1fr 0.9fr;
-            align-items: center;
-            gap: 2.5rem;
-            padding-bottom: 2.75rem;
-            border-bottom: 1px solid #d5ddd8;
-        }
-        .eyebrow{
-            margin: 0 0 0.75rem;
-            color: #47785e;
-            font-size: 0.82rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .home-intro h1{
-            max-width: 12ch;
-            margin: 0;
-            color: #252c2a;
-            font-size: 2.8rem;
-            line-height: 1.08;
-        }
-        .home-intro p:not(.eyebrow){
-            max-width: 54ch;
-            margin: 1rem 0 1.5rem;
-            color: #526058;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        .intro-actions{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        .action-link{
-            display: inline-block;
-            padding: 0.75rem 1rem;
-            border: 1px solid #47785e;
-            border-radius: 4px;
-            color: #fff;
-            background: #47785e;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .action-link.secondary{
-            color: #345b45;
-            background: transparent;
-        }
-        .action-link:hover{
-            background: #355c46;
-            color: #fff;
-        }
-        .action-link:focus-visible,
-        .text-link:focus-visible{
-            outline: 2px solid #47785e;
-            outline-offset: 3px;
-        }
-        .intro-image{
-            display: block;
-            width: 100%;
-            aspect-ratio: 16 / 11;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .home-section{
-            padding: 2.5rem 0;
-            border-bottom: 1px solid #d5ddd8;
-        }
-        .section-heading{
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-        .section-heading h2,
-        .feature-copy h2,
-        .visit-copy h2{
-            margin: 0;
-            color: #252c2a;
-            font-size: 1.7rem;
-        }
-        .section-heading p{
-            margin: 0.4rem 0 0;
-            color: #626e67;
-        }
-        .text-link{
-            color: #345b45;
-            font-weight: 700;
-            text-underline-offset: 3px;
-        }
-        .event-list{
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-        }
-        .event-card{
-            padding: 1.25rem;
-            border: 1px solid #d5ddd8;
-            border-top: 3px solid #83c6a4;
-            border-radius: 4px;
-            background: #fff;
-        }
-        .event-date{
-            margin: 0 0 0.65rem;
-            color: #47785e;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-        .event-card h3{
-            margin: 0 0 0.65rem;
-            color: #252c2a;
-            font-size: 1.2rem;
-        }
-        .event-card p:not(.event-date){
-            margin: 0 0 0.8rem;
-            color: #526058;
-            line-height: 1.55;
-        }
-        .event-place{
-            display: block;
-            margin-bottom: 1rem;
-            color: #68756d;
-            font-size: 0.9rem;
-        }
-        .feature-row{
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            align-items: center;
-            gap: 2rem;
-        }
-        .feature-row img{
-            display: block;
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .feature-copy p,
-        .visit-copy p{
-            color: #526058;
-            line-height: 1.7;
-        }
-        .feature-facts{
-            margin: 1.25rem 0;
-            padding-left: 1.2rem;
-            color: #526058;
-            line-height: 1.8;
-        }
-        .visit-section{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            padding: 2.5rem 0 0;
-        }
-        .visit-copy p{
-            max-width: 60ch;
-            margin-bottom: 0;
-        }
-        body.dark-mode{
-            background-color: #171d19;
-            color: #e4e9e6;
-        }
-        body.dark-mode .home-page{
-            color: #e4e9e6;
-        }
-        body.dark-mode .home-intro,
-        body.dark-mode .home-section{
-            border-color: #39463e;
-        }
-        body.dark-mode .home-intro h1,
-        body.dark-mode .section-heading h2,
-        body.dark-mode .feature-copy h2,
-        body.dark-mode .visit-copy h2,
-        body.dark-mode .event-card h3{
-            color: #f2f5f3;
-        }
-        body.dark-mode .home-intro p:not(.eyebrow),
-        body.dark-mode .section-heading p,
-        body.dark-mode .event-card p:not(.event-date),
-        body.dark-mode .feature-copy p,
-        body.dark-mode .visit-copy p,
-        body.dark-mode .feature-facts{
-            color: #c1cbc4;
-        }
-        body.dark-mode .eyebrow,
-        body.dark-mode .text-link,
-        body.dark-mode .event-date{
-            color: #a9dfbd;
-        }
-        body.dark-mode .event-card{
-            border-color: #405047;
-            border-top-color: #83c6a4;
-            background-color: #222b26;
-        }
-        body.dark-mode .event-place{
-            color: #aab7ae;
-        }
-        body.dark-mode .action-link.secondary{
-            border-color: #83c6a4;
-            color: #b9e9ca;
-        }
-        body.dark-mode .action-link.secondary:hover{
-            background-color: #355c46;
-            color: #fff;
-        }
-        @media (max-width: 760px){
-            .home-intro,
-            .feature-row{
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .home-intro h1{
-                font-size: 2.3rem;
-            }
-            .event-list{
-                grid-template-columns: 1fr;
-            }
-            .section-heading,
-            .visit-section{
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="event-details.html">Event Details</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="registration.html">Registration</a></li>
-        </ul>
-        <button class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
-    </nav>
+    <header class="site-header">
+        <div class="brand-wrap">
+            <span class="brand-mark">Campus Events Guide</span>
+        </div>
+        <nav class="navbar" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="event-details.html">Event Details</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="registration.html">Registration</a></li>
+            </ul>
+            <label class="theme-toggle" for="theme-toggle">
+                <input id="theme-toggle" type="checkbox" aria-label="Toggle dark mode">
+                <span>Dark mode</span>
+            </label>
+        </nav>
+    </header>
     <main class="home-page">
         <section class="home-intro" aria-labelledby="home-title">
             <div>
@@ -326,16 +96,14 @@
         </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2024 Campus Event Guide. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 Campus Event Guide. All rights reserved.</p>
+            <ul class="social-links" aria-label="Social media links">
+                <li><a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
+                <li><a href="https://www.x.com" target="_blank" rel="noreferrer">X</a></li>
+            </ul>
+        </div>
     </footer>
-    <script>
-        const themeToggle = document.querySelector(".theme-toggle");
-
-        themeToggle.addEventListener("click", () => {
-            const darkModeEnabled = document.body.classList.toggle("dark-mode");
-            themeToggle.setAttribute("aria-pressed", String(darkModeEnabled));
-            themeToggle.textContent = darkModeEnabled ? "Light mode" : "Dark mode";
-        });
-    </script>
 </body>
 </html>
